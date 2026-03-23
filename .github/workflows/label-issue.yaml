@@ -1,0 +1,19 @@
+name: label issue
+on :
+  issues:
+    types: [opened,reopened]
+jobs:
+  label_issues:
+    runs_on: ubuntu
+    permissions:
+          issue: write
+    steps:
+      
+      uses: actions/labeler@v2
+      run: gh issue edit "$NUMBER" --add-label "$LABEL"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        NUMBER: ${{ github.event.issue.number }}
+        LABEL: triage
+        
