@@ -1,0 +1,14 @@
+name: self-hosted-demo
+
+on: push
+
+jobs:
+  test:
+    runs-on: self-hosted   # 👈 key line
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run a command
+        run: echo "Running on self-hosted runner"
