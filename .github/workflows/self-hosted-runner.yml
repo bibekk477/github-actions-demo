@@ -1,14 +1,17 @@
-name: self-hosted-demo
+name: Test Self-Hosted Runner
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   test:
-    runs-on: self-hosted   # 👈 key line
+    runs-on: self-hosted
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Print message
+        run: echo "Hello from self-hosted runner 🚀"
 
-      - name: Run a command
-        run: echo "Running on self-hosted runner"
+      - name: Check system info
+        run: uname -a
