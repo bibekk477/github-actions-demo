@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  test:
+  self-hosted-runner-job:
     runs-on: self-hosted
 
     steps:
